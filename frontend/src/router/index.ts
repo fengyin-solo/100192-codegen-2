@@ -19,6 +19,8 @@ const Spare = () => import('@/views/spare/index.vue')
 const Patrol = () => import('@/views/patrol/index.vue')
 const Accept = () => import('@/views/accept/index.vue')
 const Settle = () => import('@/views/settle/index.vue')
+const Workpermit = () => import('@/views/workpermit/index.vue')
+const WorkpermitDetail = () => import('@/views/workpermit/detail.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -42,6 +44,8 @@ const router = createRouter({
     { path: '/patrol', name: 'patrol', component: Patrol },
     { path: '/accept', name: 'accept', component: Accept },
     { path: '/settle', name: 'settle', component: Settle },
+    { path: '/workpermit', name: 'workpermit', component: Workpermit },
+    { path: '/workpermit/:id', name: 'workpermit-detail', component: WorkpermitDetail },
   ],
 })
 

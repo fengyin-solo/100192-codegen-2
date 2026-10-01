@@ -244,3 +244,15 @@ class SettleEntry(BaseModel):
     field_5: str | None = None  # 补贴金额
     field_6: str | None = None  # 结算金额
     field_7: str | None = None  # 结算状态
+
+class WorkpermitEntry(BaseModel):
+    """高风险作业票明细结构。"""
+
+    field_0: str | None = None  # 作业票编号
+    field_1: str | None = None  # 作业类别
+    field_2: str | None = None  # 作业地点
+    field_3: str | None = None  # 监护人
+    field_4: str | None = None  # 申请人
+    field_5: str | None = None  # 有效期起
+    field_6: str | None = None  # 有效期止
+    field_7: str | None = None  # 许可状态

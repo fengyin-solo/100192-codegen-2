@@ -18,7 +18,7 @@
       </thead>
       <tbody>
         <tr v-for="row in moduleRows" :key="row.name">
-          <td>{{ row.name }}</td>
+          <td>{{ moduleLabels[row.name] ?? row.name }}</td>
           <td>{{ row.created }}</td>
           <td>{{ row.pending }}</td>
           <td>{{ row.abnormal }}</td>
@@ -40,6 +40,29 @@ type Overview = {
 
 const cards = ref<Overview['cards']>([])
 const moduleRows = ref<Overview['modules']>([])
+
+// 后端模块名是英文 key，这里统一给出台账中文名称；高风险作业票的待处理量即「待审签」数。
+const moduleLabels: Record<string, string> = {
+  windfarm: '风电场站',
+  turbine: '风电机组',
+  blade: '叶片',
+  gearbox: '齿轮箱',
+  generator: '发电机',
+  pitch: '变桨系统',
+  yaw: '偏航系统',
+  metmast: '测风塔',
+  collector: '集电线路',
+  substation: '升压站',
+  forecast: '功率预测',
+  vibration: '振动监测',
+  defect: '缺陷登记',
+  maintjob: '检修任务',
+  spare: '备件领用',
+  patrol: '巡视检查',
+  accept: '验收确认',
+  settle: '电量结算',
+  workpermit: '高风险作业票',
+}
 
 onMounted(async () => {
   try {
